@@ -1,13 +1,18 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(undefined); // undefined = still loading
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,19 +20,25 @@ export function AuthProvider({ children }) {
       setUser(currentUser);
       setLoading(false);
     });
-
     return () => unsubscribe();
   }, []);
 
-  const value = { user, loading };
+  const logout = () => signOut(auth);
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  const loginWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, loading, logout, loginWithGoogle }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used inside AuthProvider");
-  }
+  if (!context) throw new Error("useAuth must be used inside AuthProvider");
   return context;
 }

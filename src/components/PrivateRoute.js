@@ -5,15 +5,23 @@ import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export default function PrivateRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (user === null) {
+    if (!loading && user === null) {
       router.push(`/login?redirect=${pathname}`);
     }
-  }, [user, router, pathname]);
+  }, [user, loading, router, pathname]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    );
+  }
 
   if (!user) return null;
 
