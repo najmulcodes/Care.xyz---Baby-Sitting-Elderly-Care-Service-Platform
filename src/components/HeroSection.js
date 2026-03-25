@@ -42,8 +42,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-5 max-w-[460px] text-base leading-7 text-white/88 sm:text-lg">
-              Book verified babysitting, elderly care, and home support with confidence.
-              সহজ, নিরাপদ, আর আপনার পরিবারের প্রয়োজন অনুযায়ী বিশ্বস্ত care service.
+              Find verified caregivers for babysitting, elderly care, and home nursing —
+              সহজ, নিরাপদ, এবং আপনার সময় অনুযায়ী।
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
