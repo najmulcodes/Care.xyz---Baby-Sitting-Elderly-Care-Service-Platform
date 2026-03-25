@@ -1,5 +1,12 @@
+import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Care.xyz — Trusted Care Platform in Bangladesh",
+  description:
+    "Find verified caregivers for babysitting, elderly care, and home nursing across Bangladesh.",
+};
 
 const testimonials = [
   {
@@ -32,35 +39,8 @@ const stats = [
 export default function HomePage() {
   return (
     <div className="space-y-24">
-      {/* Hero */}
-      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white px-8 py-20 md:py-28">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_80%_50%,#fff_0%,transparent_60%)]" />
-        <div className="relative max-w-3xl">
-          <span className="inline-block bg-white/20 text-white/90 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            Trusted Care Platform in Bangladesh
-          </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-            Caring Hands for<br />Your Loved Ones
-          </h1>
-          <p className="text-blue-100 text-lg md:text-xl max-w-xl leading-relaxed mb-8">
-            Book verified, background-checked caregivers for baby sitting, elderly support, and home sick care — anytime, anywhere.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/services"
-              className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors"
-            >
-              Book a Service
-            </Link>
-            <Link
-              href="/register"
-              className="border border-white/50 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              Create Account
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero — new design */}
+      <HeroSection />
 
       {/* Stats */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -80,7 +60,7 @@ export default function HomePage() {
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12 flex items-center justify-center">
           <div className="text-center space-y-4">
             <div className="text-7xl">🤝</div>
-            <p className="text-blue-800 font-semibold text-lg">Making caregiving easy, safe & accessible</p>
+            <p className="text-blue-800 font-semibold text-lg">Making caregiving easy, safe &amp; accessible</p>
           </div>
         </div>
         <div>
@@ -116,11 +96,11 @@ export default function HomePage() {
           {testimonials.map((t) => (
             <div key={t.name} className="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex gap-1 mb-4">
-                {"★".repeat(t.rating).split("").map((s, i) => (
+                {"★★★★★".split("").map((s, i) => (
                   <span key={i} className="text-yellow-400 text-lg">★</span>
                 ))}
               </div>
-              <p className="text-gray-700 leading-relaxed mb-6">"{t.text}"</p>
+              <p className="text-gray-700 leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
               <div>
                 <p className="font-semibold text-gray-900">{t.name}</p>
                 <p className="text-gray-500 text-sm">{t.role}</p>
@@ -138,7 +118,7 @@ export default function HomePage() {
           href="/register"
           className="bg-white text-blue-700 font-bold px-10 py-4 rounded-xl hover:bg-blue-50 transition-colors inline-block"
         >
-          Get Started — It's Free
+          Get Started — It&apos;s Free
         </Link>
       </section>
     </div>
