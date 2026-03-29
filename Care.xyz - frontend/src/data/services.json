@@ -1,0 +1,20 @@
+[
+  {
+    "id": "baby",
+    "name": "Baby Sitting",
+    "price": 500,
+    "description": "Trusted babysitters at home"
+  },
+  {
+    "id": "elderly",
+    "name": "Elderly Care",
+    "price": 700,
+    "description": "Compassionate elderly support"
+  },
+  {
+    "id": "sick",
+    "name": "Sick Care",
+    "price": 800,
+    "description": "Home care for sick patients"
+  }
+]
