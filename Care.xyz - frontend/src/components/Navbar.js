@@ -147,7 +147,7 @@ export default function Navbar() {
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
                       >
                         <span className="text-base">➕</span>
-                        Add Service
+                        Add Product
                       </Link>
                       <Link
                         href="/manage-services"
@@ -155,7 +155,7 @@ export default function Navbar() {
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
                       >
                         <span className="text-base">⚙️</span>
-                        Manage Services
+                        Manage Products
                       </Link>
                       <Link
                         href="/my-bookings"
@@ -261,14 +261,14 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors"
                 >
-                  ➕ Add Service
+                  ➕ Add Product
                 </Link>
                 <Link
                   href="/manage-services"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors"
                 >
-                  ⚙️ Manage Services
+                  ⚙️ Manage Products
                 </Link>
                 <button
                   onClick={handleSignOut}

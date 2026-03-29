@@ -31,12 +31,12 @@ Built with Next.js 14 App Router, it features full authentication via NextAuth.j
 ## ✨ Features
 
 - 🔐 **Authentication** — Google OAuth + email/password via NextAuth.js
-- 🛡️ **Protected Routes** — Add Service, Manage Services, My Bookings require login
+- 🛡️ **Protected Routes** — Add Product, Manage Products, My Bookings require login
 - 🔍 **Search & Filter** — Real-time search + category filter on services page
 - 📋 **Service Listing** — 6+ service cards with image, title, description, price, rating
 - 📄 **Service Details** — Full detail page with features list, pricing, back button
-- ➕ **Add Service** — Protected form with full validation and live preview
-- ⚙️ **Manage Services** — Table/card view with View modal and Delete confirmation
+- ➕ **Add Product** — Protected form with validation, priority/date fields, and live preview
+- ⚙️ **Manage Products** — Table/card view with View and Delete actions
 - 📅 **My Bookings** — Booking history with status filter and cancellation
 - 🎨 **Polished UI** — Playfair Display + DM Sans fonts, teal design system
 - 📱 **Fully Responsive** — Mobile, tablet, and desktop

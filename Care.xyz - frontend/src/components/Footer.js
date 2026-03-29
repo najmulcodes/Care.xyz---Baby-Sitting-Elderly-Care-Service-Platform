@@ -1,35 +1,93 @@
 import Link from "next/link";
 
+const footerLinks = {
+  Services: [
+    { href: "/services/babysitting", label: "Baby Sitting" },
+    { href: "/services/elderly", label: "Elderly Care" },
+    { href: "/services/sickcare", label: "Sick Care" },
+    { href: "/services/nursing", label: "Home Nursing" },
+    { href: "/services/therapy", label: "Therapy at Home" },
+  ],
+  Company: [
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "All Services" },
+    { href: "/my-bookings", label: "My Bookings" },
+    { href: "/add-service", label: "List a Service" },
+  ],
+  Account: [
+    { href: "/login", label: "Sign In" },
+    { href: "/register", label: "Register" },
+    { href: "/manage-services", label: "Manage Products" },
+  ],
+};
+
 export default function Footer() {
   return (
-    <footer className="border-t bg-white mt-16 sm:mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-          <div>
-            <Link href="/" className="text-xl font-bold text-blue-600">Care<span className="text-gray-900">.xyz</span></Link>
-            <p className="text-gray-500 text-sm mt-2 max-w-xs">Making caregiving easy, safe, and accessible for every family in Bangladesh.</p>
+    <footer className="bg-slate-950 text-slate-400 mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top section */}
+        <div className="py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                C
+              </div>
+              <span className="text-lg font-bold">
+                <span className="text-teal-400" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Care
+                </span>
+                <span className="text-white">.xyz</span>
+              </span>
+            </Link>
+            <p className="text-sm leading-relaxed text-slate-500 max-w-xs mb-6">
+              Making caregiving easy, safe, and accessible for every family across Bangladesh.
+            </p>
+            {/* Social links */}
+            <div className="flex gap-3">
+              {["Facebook", "Twitter", "LinkedIn", "Instagram"].map((social) => (
+                <a
+                  key={social}
+                  href="#"
+                  aria-label={social}
+                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-teal-600 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200"
+                >
+                  <span className="text-xs font-bold">{social[0]}</span>
+                </a>
+              ))}
+            </div>
           </div>
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-500">
-              <li><Link href="/services" className="hover:text-blue-600">Services</Link></li>
-              <li><Link href="/my-bookings" className="hover:text-blue-600">My Bookings</Link></li>
-              <li><Link href="/login" className="hover:text-blue-600">Login</Link></li>
-              <li><Link href="/register" className="hover:text-blue-600">Register</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Services</h4>
-            <ul className="space-y-2 text-sm text-gray-500">
-              <li><Link href="/services/babysitting" className="hover:text-blue-600">Baby Sitting</Link></li>
-              <li><Link href="/services/elderly" className="hover:text-blue-600">Elderly Care</Link></li>
-              <li><Link href="/services/sickcare" className="hover:text-blue-600">Sick Care</Link></li>
-            </ul>
-          </div>
+
+          {/* Links */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+                {title}
+              </h4>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-slate-500 hover:text-teal-400 transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="border-t pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-gray-400 gap-2 text-center sm:text-left">
+
+        {/* Bottom bar */}
+        <div className="border-t border-slate-800 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600">
           <span>© 2026 Care.xyz. All rights reserved.</span>
-          <span>Baby Sitting & Elderly Care Platform</span>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-slate-400 transition-colors">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </footer>

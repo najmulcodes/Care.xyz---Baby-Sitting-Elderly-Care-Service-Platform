@@ -1,11 +1,16 @@
 import "./globals.css";
-import { AuthProvider } from "@/context/AuthContext";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import SessionProvider from "@/components/SessionProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
-  title: "Care.xyz",
-  description: "Baby Sitting & Elderly Care Service Platform",
+  title: "Care.xyz — Trusted Care Platform in Bangladesh",
+  description:
+    "Find verified caregivers for babysitting, elderly care, and home nursing across Bangladesh. Book trusted care in minutes.",
+  keywords: "babysitting, elderly care, home nursing, Bangladesh, caregivers",
 };
 
 export const viewport = {
@@ -13,15 +18,36 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 overflow-x-hidden">
-        <AuthProvider>
+      <body className="bg-cream-50 text-slate-900 antialiased overflow-x-hidden">
+        <SessionProvider session={session}>
           <Navbar />
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10">{children}</main>
+          <main>{children}</main>
           <Footer />
-        </AuthProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                fontFamily: "'DM Sans', sans-serif",
+                borderRadius: "12px",
+                border: "1px solid #e2e8f0",
+                padding: "12px 16px",
+                fontSize: "14px",
+              },
+              success: {
+                iconTheme: { primary: "#0d9488", secondary: "#fff" },
+              },
+              error: {
+                iconTheme: { primary: "#ef4444", secondary: "#fff" },
+              },
+            }}
+          />
+        </SessionProvider>
       </body>
     </html>
   );

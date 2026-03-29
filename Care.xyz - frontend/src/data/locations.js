@@ -10,14 +10,3 @@ export const districts = {
   Mymensingh: ["Mymensingh", "Netrokona", "Kishorganj", "Jamalpur"],
   Rangpur: ["Rangpur", "Dinajpur", "Gaibandha", "Kurigram", "Nilphamari", "Lalmonirhat"],
 };
-
-export const cities = {
-  Dhaka: ["Dhaka City", "Savar", "Keraniganj", "Tongi"],
-  Gazipur: ["Gazipur Sadar", "Kaliakair", "Kaliganj", "Kapasia"],
-  Chittagong: ["Chittagong City", "Sitakunda", "Mirersarai"],
-};
-
-export const areas = {
-  "Dhaka City": ["Dhanmondi", "Gulshan", "Banani", "Uttara", "Mirpur", "Mohammadpur", "Motijheel", "Wari"],
-  "Chittagong City": ["Agrabad", "Nasirabad", "Halishahar", "Pahartali"],
-};
